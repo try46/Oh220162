@@ -28,6 +28,7 @@ public class kg2 {
             }
             br.close();
             bw.close();
+            System.out.println("読み込み完了");
         } catch (IOException e) {
             System.out.println("読み込みに失敗");
         }
