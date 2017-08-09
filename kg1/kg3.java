@@ -116,26 +116,26 @@ public class kg3 extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        JFileChooser fc=new JFileChooser(new File("C:\\Users\\c0116103"));
-        int selectedButton=fc.showOpenDialog(this);
-        
+        JFileChooser fc = new JFileChooser(new File("C:\\Users\\c0116103"));
+        int selectedButton = fc.showOpenDialog(this);
+
         File selectedFile;
-        switch(selectedButton){
+        switch (selectedButton) {
             case JFileChooser.APPROVE_OPTION:
-                selectedFile=fc.getSelectedFile();
+                selectedFile = fc.getSelectedFile();
                 fileNameLabel.setText(selectedFile.getName());
-                fileSizeLabel.setText(selectedFile.length()+"bytes");
+                fileSizeLabel.setText(selectedFile.length() + "bytes");
                 fullpathLabel.setText(selectedFile.getAbsolutePath());
                 fileExtensionLabel.setText(selectedFile.getName().substring(
-                        (selectedFile.getName().lastIndexOf(".")+1)));
+                        (selectedFile.getName().lastIndexOf(".") + 1)));
                 break;
-                case JFileChooser.CANCEL_OPTION:
-                    break;
-                    case JFileChooser.ERROR:
-                        System.out.println("Error");
-                        break;
+            case JFileChooser.CANCEL_OPTION:
+                break;
+            case JFileChooser.ERROR:
+                System.out.println("Error");
+                break;
         }
-        
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
