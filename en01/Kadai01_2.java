@@ -21,7 +21,7 @@ public class Kadai01_2 {
     public static void main(String[] args) {
         ArrayList<String> out11List=new ArrayList<>();
         try {
-            BufferedReader br=new BufferedReader(new FileReader(new File("out11.txt")));
+            BufferedReader br=new BufferedReader(new FileReader(new File("src\\out11.txt")));
             while (true) {                
                 String line=br.readLine();
                 if (line==null) {
@@ -48,7 +48,7 @@ public class Kadai01_2 {
             
         }
         try {
-            BufferedWriter bw=new BufferedWriter(new FileWriter(new File("out12.txt")));
+            BufferedWriter bw=new BufferedWriter(new FileWriter(new File("src\\out12.txt")));
             bw.write("野菜リスト: ");
             for (String yasaitable : nameList) {
                 bw.write(yasaitable+"/");

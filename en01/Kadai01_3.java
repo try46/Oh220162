@@ -147,7 +147,7 @@ public class Kadai01_3 extends javax.swing.JFrame {
     private void saveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveButtonActionPerformed
         // TODO add your handling code here:
         try {
-            BufferedWriter bw=new BufferedWriter(new FileWriter(new File("out13.ttxt")));
+            BufferedWriter bw=new BufferedWriter(new FileWriter(new File("src\\out13.ttxt")));
             for(String line:textArea.getText().split("\n")){
                 bw.write(line);
                 bw.newLine();

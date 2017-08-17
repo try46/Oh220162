@@ -83,7 +83,7 @@ public class Kadai01_4 extends javax.swing.JFrame {
        ArrayList<String>omikuziList =new ArrayList<>();
    //    int random=(int)(Math.random()*omikuziList.size());
         try {
-            BufferedReader br=new BufferedReader(new FileReader(new File("input15.txt")));
+            BufferedReader br=new BufferedReader(new FileReader(new File("src\\input15.txt")));
             while (true) {                
                 String linw=br.readLine();
                 if(linw==null){

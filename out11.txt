@@ -1,0 +1,6 @@
+potato
+200
+carrot
+350
+onion
+450

@@ -180,7 +180,7 @@ public class Kadai01_1 extends javax.swing.JFrame {
 
     private void saveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveButtonActionPerformed
         try {
-            BufferedWriter bw=new BufferedWriter(new FileWriter(new File("out11.txt")));
+            BufferedWriter bw=new BufferedWriter(new FileWriter(new File("src\\out11.txt")));
             String[] lines=textArea.getText().split("\n");
             for (String line : lines) {
                 bw.write(line);

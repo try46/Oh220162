@@ -1,0 +1,2 @@
+野菜リスト: potato/carrot/onion/
+合計の値段1000
