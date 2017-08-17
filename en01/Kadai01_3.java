@@ -6,8 +6,10 @@
 package en01;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import javax.swing.JFileChooser;
@@ -37,7 +39,7 @@ public class Kadai01_3 extends javax.swing.JFrame {
         openButton = new javax.swing.JButton();
         saveButton = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        textArea = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -49,10 +51,15 @@ public class Kadai01_3 extends javax.swing.JFrame {
         });
 
         saveButton.setText("保存");
+        saveButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                saveButtonActionPerformed(evt);
+            }
+        });
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        textArea.setColumns(20);
+        textArea.setRows(5);
+        jScrollPane1.setViewportView(textArea);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -96,17 +103,17 @@ public class Kadai01_3 extends javax.swing.JFrame {
                 //拡張子の確認
                 System.out.println(selectfile.getName().substring(selectfile.getName().lastIndexOf(".")+1));
                 if(!(selectfile.getName().substring(selectfile.getName().lastIndexOf(".")+1).equals("txt"))){
-                    jTextArea1.setText("テキストファイルしか入力できません");
+                    textArea.setText("テキストファイルしか入力できません");
                     
                 }else{
-                    ArrayList<String>list=new ArrayList<>();
+                    ArrayList<String>out11list=new ArrayList<>();
                     
                     try {
                         BufferedReader br=new BufferedReader(new FileReader(selectfile));
                         while (true) {                            
                             String lineString=br.readLine();
                             if(lineString!=null){
-                                list.add(lineString);
+                                out11list.add(lineString);
                             }else{
                                 break;
                             }
@@ -114,12 +121,43 @@ public class Kadai01_3 extends javax.swing.JFrame {
                     } catch (IOException e) {
                         System.out.println(e.getMessage());
                     }
-                    
+                    ArrayList<String> nameList=new ArrayList<>();
+                    int priceSum=0;
+                    int lineCount=1;
+                    for (String line : out11list) {
+                        if(lineCount%2!=0){
+                            nameList.add(line);
+                        }else{
+                            priceSum+=Integer.parseInt(line);
+                        }
+                        lineCount++;
+                    }
+                    textArea.append("野菜リスト :");
+                    for (String begetable : nameList) {
+                        textArea.append(begetable+ "/");
+                        
+                    }
+                    textArea.append("\n"+"合計の値段"+priceSum);
                 }
                 
         }
 // TODO add your handling code here:
     }//GEN-LAST:event_openButtonActionPerformed
+
+    private void saveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveButtonActionPerformed
+        // TODO add your handling code here:
+        try {
+            BufferedWriter bw=new BufferedWriter(new FileWriter(new File("out13.ttxt")));
+            for(String line:textArea.getText().split("\n")){
+                bw.write(line);
+                bw.newLine();
+            }
+            bw.close();
+            textArea.append("\n"+"out13.txtに保存しました。");
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+        }
+    }//GEN-LAST:event_saveButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -162,8 +200,8 @@ public class Kadai01_3 extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JButton openButton;
     private javax.swing.JButton saveButton;
+    private javax.swing.JTextArea textArea;
     // End of variables declaration//GEN-END:variables
 }
